@@ -17,7 +17,7 @@ class Order(models.Model):
 
     creator = models.ForeignKey(User, verbose_name='buyer', on_delete=models.CASCADE,)
     products = models.ManyToManyField(Product, through=OrderedProduct, related_name="order")
-    order_price = models.DecimalField(max_digits=10, verbose_name="order_price", decimal_places=2,)
+    order_price = models.DecimalField(max_digits=10, decimal_places=2,)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=NEW_STATUS)
     created_at = models.DateTimeField(verbose_name="created", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="updated", auto_now=True)
